@@ -9,7 +9,7 @@ const App = () => {
   
   const [recipes, setRecipes] = useState([]);
   const [search, setSearch] = useState('');
-  const [query, setQuery] = useState('vegan');
+  const [query, setQuery] = useState('granola');
 
   useEffect(() => {
     getRecipes();
@@ -40,13 +40,17 @@ const App = () => {
           Search
         </button>
       </form>
+      <div className="recipes">
       {recipes.map(recipe => (
         <Recipe 
           key={recipe.recipe.label}
           title={recipe.recipe.label} 
           calories={recipe.recipe.calories} 
-          image={recipe.recipe.image}/>
+          image={recipe.recipe.image}
+          ingredients={recipe.recipe.ingredients}
+        />
       ))}
+      </div>
     </div>
   );
 }
